@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta jusung-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>   
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <title>School of Rocks</title>
+</head>
+<body>
+  <!-- Overlay section -->
+  <div id="overlay">
+    <div class="overlay-box">
+      <div class="p-4">
+        <h1 class="text-center">How to Play</h1>
+        <h2>Intro</h2>
+        <p> Welcome to "School of Rocks"! You are a prospecting entrepreneur who has stumbled across a large patch of land. In the vicinity, you can see vast amounts of dirt. Off to the side, you can make out a large forest, a cave, and a large vein of surface ore. You fondly remember your time as a student, and you decide to stay here and create an establishment for students to flourish. However, you don’t want it to be any plain old university; you want it to be a university on top of a mountain. You quickly set to work to fulfill your dream, one scoop of dirt at a time.</p>
+        <h2>Basic Mechanics</h2>
+        <p>"School of Rocks" is an incremental game. There are 5 resources in the game: Dirt, Wood, Stone, Metal and Students. Dirt is used to build up Burnaby Mountain, while the buildings that comprise the university are constructed with wood, stone and metal.
+  <br>To gather resources (except for students), click on the corresponding button/area. Dirt can be gathered if you click anywhere within the play area. To help you in your endeavour, you can purchase tools to make your clicks more efficient, or you can hire workers or purchase machines to automatically collect resources for you. 
+  <br>Students are purchased with dirt. Students can be sent to raid other institutions. All raids have a 50% chance of success so don't rely on them too heavily!</p>
+        <h2>Random Events</h2>
+        <p>There is a very small possibility that your university is struck by an earthquake or a fire. These are tragic accidents that cannot be avoided unfortunately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 left-box">
+        <!-- 
+
+            Resource Display Section 
+
+        -->
+        <h1 class="text-center">School of Rocks</h1>
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-sm-6 text-center">
+              <p class="top-text">Resources</p>
+              <ul class="no-bullets no-padding">
+                <li class="dirt-amount">Dirt: 0</li>
+                <li class="wood-amount">Wood: 0</li>
+                <li class="stone-amount">Stone: 0</li>
+                <li class="metal-amount">Metal: 0</li>
+                <li class="student-amount">Students: 0</li>
+              </ul>
+            </div>
+            <div class="col-sm-6 text-center">
+              <p class="top-text">Passive Gains</p>
+              <ul class="no-bullets no-padding">
+                <li class="passive-dirt">Dirt: 0</li>
+                <li class="passive-wood">Wood: 0</li>
+                <li class="passive-stone">Stone: 0</li>
+                <li class="passive-metal">Metal: 0</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 
+
+            End Resource Display Section 
+
+        -->
+
+        <!-- 
+
+            Passive Upgrades Section 
+
+        -->
+        <div class="col-xs-12 scrollable box">
+          <p class="text-center title">Passive Upgrades</p>
+          <div class="text-container pointer hover-bold workers-passive relative">
+            <h1 id="workers">Workers LV. </h1>
+            <p>Workers who collects dirt for you. (+3 dirt per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/worker.png" alt="workers picture">
+            <p id="workers-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pointer hover-bold vehicles-passive relative">
+            <h1 id="vehicles">Vehicles Lv.)</h1>
+            <p>Vehicles that can move large amounts of dirt. (+5 dirt per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/vehicle.png" alt="vehicles picture">
+            <p id="vehicles-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pointer hover-bold slaves-passive relative">
+            <h1 id="slaves">Slaves Lv.</h1>
+            <p>People collecting dirt. (+1 dirt per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/slave.png" alt="slaves picture">
+            <p id="slaves-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pointer hover-bold forester-passive relative">
+            <h1 id="forester">Forester Lv.</h1>
+            <p>Collects wood. (+100 wood per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/forester.png" alt="lumberjack picture">
+            <p id="forester-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pointer hover-bold rock_quarry-passive relative">
+            <h1 id="rock_quarry">Rock Quarry Lv.</h1>
+            <p>An area with lots of stone. (+100 stone per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/rock_quarry.png" alt="rock_quarry picture">
+            <p id="rock_quarry-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pointer hover-bold ore_quarry-passive relative">
+            <h1 id="ore_quarry">Ore Quarry Lv.</h1>
+            <p>An area with lots of ore. (+100 metal per tick)</p>
+            <img class="object_pictures" src="images/passive_upgrades/ore_quarry.png" alt="ore_quarry">
+            <p id="ore_quarry-dirt">Cost: 0 dirt</p>
+          </div>
+
+          <!-- 
+
+              End Passive Upgrades Section 
+
+          -->
+
+          <!-- 
+
+              Active Upgrades Section 
+
+          -->
+
+          <p class="text-center title">Active Upgrades</p>
+          <div class="text-container buckets-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-bucket">Buckets Upgrade (Level 1)</h1>
+            <p>A simple bucket for collecting dirt. (+1 dirt per click)</p>
+             <img class="object_pictures" src="./images/resources/bucket.png" alt="bucket">
+            <p id="bucket-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container shovels-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-shovel">Shovels Upgrade (Level 1)</h1>
+            <p>A simple shovel for collecting dirt. (+5 dirt per click)</p>
+            <img class="object_pictures" src="./images/resources/shovel.png" alt="shovel">
+            <p id="shovel-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container trucks-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-truck">Trucks Upgrade (Level 1)</h1>
+            <p>A powerful truck for collecting dirt. (+25 dirt per click)</p>
+            <img class="object_pictures" src="./images/resources/thetruck.png" alt="truck">
+            <p id="truck-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container excavators-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-excavator">Excavator Upgrade (Level 1)</h1>
+            <p>A machine that excavates dirt. (+50 dirt per click)</p>
+            <img class="object_pictures" src="./images/resources/excavator.png" alt="excavator">
+            <p id="excavator-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container backhoes-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-backhoe">Backhoe Upgrade (Level 1)</h1>
+            <p>A machine that shovels dirt. (+100 dirt per click)</p>
+            <img class="object_pictures" src="./images/resources/backhoe.png" alt="backhoe">
+            <p id="backhoe-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container axes-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-axe">Axe Upgrade (Level 1)</h1>
+            <p>A simple axe for collecting wood. (+1 wood per click)</p>
+            <img class="object_pictures" src="./images/resources/axe.png" alt="axe">
+            <p id="axe-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container hacksaws-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-hacksaw">Hacksaw Upgrade (Level 1)</h1>
+            <p>A saw for sawing wood. (+5 wood per click)</p>
+            <img class="object_pictures" src="./images/resources/hacksaw.png" alt="hacksaw">
+            <p id="hacksaw-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container chainsaws-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-chainsaw">Chainsaw Upgrade (Level 1)</h1>
+            <p>An automated saw for collecting wood. (+15 wood per click)</p>
+            <img class="object_pictures" src="./images/resources/chainsaw.png" alt="chainsaw">
+            <p class="chainsaw-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container pickaxes-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-pickaxes">Pickaxe Upgrade (Level 1)</h1>
+            <p>A simple pickaxe for collecting stone. (+1 stone per click)</p>
+            <img class="object_pictures" src="./images/resources/pickaxe.png" alt="pickaxe">
+            <p class="pickaxes-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container sledgehammers-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-sledgehammers">Sledgehammer Upgrade (Level 1)</h1>
+            <p>A sledgehammer to break up stone. (+5 stone per click)</p>
+            <img class="object_pictures" src="./images/resources/sledgehammer.png" alt="sledgehammer">
+            <p class="sledgehammer-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container dynamites-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-dynamite">Dynamite Upgrade (Level 1)</h1>
+            <p>Blows up stone. (+25 stone per click)</p>
+            <img class="object_pictures" src="./images/resources/dynamite.png" alt="dynamite">
+            <p class="dynamite-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container drills-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-drills">Drill Upgrade (Level 1)</h1>
+            <p>A simple drill for collecting metal. (+3 metal per tick)</p>
+            <img class="object_pictures" src="./images/resources/drill.png" alt="drill">
+            <p class="drills-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container minecarts-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-minecarts">Minecart Upgrade (Level 1)</h1>
+            <p>A cart for metal. (+15 metal per click)</p>
+            <img class="object_pictures" src="images/resources/minecart.png" alt="minecart">
+            <p class="minecarts-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container extractors-upgrade pointer hover-bold relative">
+            <h1 class="upgrade-extractors">Extractor Upgrade (Level 1)</h1>
+            <p>Collects metal at an incredible rate. (+50 metal per click)</p>
+            <img class="object_pictures" src="images/resources/extractor.png" alt="extractor">
+            <p class="extractors-dirt">Cost: 0 dirt</p>
+          </div>
+          <div class="text-container students-purchase pointer hover-bold relative">
+            <h1 class="upgrade-students">Buy Student (Level 1)</h1>
+            <p>Can do various tasks.</p>
+            <img class="object_pictures" id="img-student" src="images/resources/student.png" alt="student">
+            <p class="students-dirt">Cost: 0 dirt</p>
+          </div>
+
+          <!-- 
+
+              End Active Upgrades Section 
+
+          -->
+          
+          <!-- 
+
+              Begin building upgrades section 
+
+          -->
+
+          <p class="text-center title">Buildings</p>
+          <div class="text-container building dormitory-upgrade pointer hover-bold">
+            <h1 class="title">Dormitory</h1>
+            <p>A building where poor living standards are the norm.</p>
+            <p>Cost: 10,000 stone, 10,000 wood, 100 metal</p> 
+          </div>
+          <div class="text-container building MBC-upgrade pointer hover-bold">
+            <h1 class="title">Maggie Benson Center</h1>
+            <p>A building where administration is done.</p>
+            <p>Cost: 20,500 stone, 15,000 wood</p>
+          </div>
+          <div class="text-container building blusson-upgrade pointer hover-bold">
+            <h1 class="title">Blusson Hall</h1>
+            <p>A building where health science students research how to prevent tsunamis.</p>
+            <p>Cost: 22,500 stone, 17,500 wood, 100 metal</p>
+          </div>
+          <div class="text-container building SSC-upgrade pointer hover-bold">
+            <h1 class="title">Shrum Science Center</h1>
+            <p>A building where science students research dirt extraction.</p>
+            <p>Cost: 25,000 stone, 17,500 wood, 100 metal</p>
+          </div>
+          <div class="text-container building library-upgrade pointer hover-bold">
+            <h1 class="title">Library</h1>
+            <p>A building for students to study advanced raiding techniques.</p>
+            <p>Cost: 30,000 stone, 20,000 wood, 100 metal</p>
+          </div>
+          <div class="text-container building SUB-upgrade pointer hover-bold">
+            <h1 class="title">Student Union Building</h1>
+            <p>A building that attracts students. Somehow.</p>
+            <p>Cost: 40,000 stone, 30,000 wood, 100 metal</p>
+          </div>
+          <div class="text-container building saywell-upgrade pointer hover-bold">
+            <h1 class="title">Saywell Hall</h1>
+            <p>A building where criminology students prevent bad events from occuring</p>
+            <p>Cost: 60,000 stone, 45,000 wood, 100 metal</p>
+          </div>
+          <div class="text-container building ASB-upgrade pointer hover-bold">
+            <h1 class="title">Applied Sciences Building</h1>
+            <p>A building where engineers extract resources better</p>
+            <p>Cost: 80,000 stone, 60,000 wood, 100 metal</p>
+          </div>
+
+          <div class="text-container building WMC-upgrade pointer hover-bold">
+            <h1 class="title">West Mall Centre</h1>
+            <p>A building where business students bargain costs.</p>
+            <p>Cost: 100,000 stone, 75,000 wood, 100 metal</p>
+          </div>
+
+          <!-- 
+
+              End building upgrades section 
+
+          -->
+
+
+          </div>
+
+          <!-- 
+
+              Active Skills Section 
+
+          -->
+            <div class="col-xs-12 box skill-box">
+              <p class="text-center top-text title">Abilities</p>
+              <div class="text-container raid uni-raid pointer hover-bold">
+                <h1 class="title">University Raid</h1>
+                <p>Students enslave students from a neighbouring university. 50% chance of gaining 150 students in return.</p>
+                <p>Cost: 100 students</p>
+              </div>
+
+              <div class="text-container raid it-raid pointer hover-bold">
+                <h1 class="title">IT Raid</h1>
+                <p>Students raid a neighbouring tech institute. 50% chance of gaining 100,000 wood, stone or metal (chosen at random) in return.</p>
+                <p>Cost: 100 students</p>
+              </div>
+
+              <div class="text-container raid col-raid pointer hover-bold">
+                <h1 class="title">College Raid</h1>
+                <p>Students raid a neighbouring college. 50% chance of gaining 150,000 dirt in return.</p>
+               <p>Cost: 100 students</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+
+              End Active Skills Section 
+
+          -->
+
+
+          <!-- 
+
+              Play Area Section
+
+          -->
+          <div id="play-area" class="col-md-6 no-padding">
+            <div class="div-wrapper relative pointer">
+              <div class="top-part">
+              <!--Clickable resources images-->
+              <img class="noSelect" id="f-stone" src="images/areas to farm/for_stone.png">
+              <img class="noSelect" id="f-wood" src="images/areas to farm/for_wood.png">
+              <img class="noSelect" id="f-metal" src="images/areas to farm/for_metal.png">
+              
+              <div class="relative full-height">
+                <!--University-->
+                <img class="noSelect img-building" id="build1" src="images/buildings/build1.png">
+                <img class="noSelect img-building" id="build2" src="images/buildings/build2.png">
+                <img class="noSelect img-building" id="build3" src="images/buildings/build3.png">
+                <img class="noSelect img-building" id="build4" src="images/buildings/build4.png">
+                <img class="noSelect img-building" id="build5" src="images/buildings/build5.png">
+                <img class="noSelect img-building" id="build6" src="images/buildings/build6.png">
+                <img class="noSelect img-building" id="build7" src="images/buildings/build7.png">
+                <img class="noSelect img-building" id="build8" src="images/buildings/build8.png">
+                <img class="noSelect img-building" id="build9" src="images/buildings/build9.png">
+                <img class="noSelect img-building" id="build10" src="images/buildings/build10.png">
+                </div>
+              </div>
+
+
+              <div class="bottom-part">
+              <!-- Mountain stages images -->
+                <div class="center"><img class = "noSelect mountain" id = "mountain0" src="images/mountain stages/mountain0.png"></div>
+                <div class="center"><img class = "noSelect mountain" id = "mountain1" src="images/mountain stages/mountain1.png"></div>
+                <div class="center"><img class = "noSelect mountain" id = "mountain2" src="images/mountain stages/mountain2.png"></div>
+                <div class="center"><img class = "noSelect mountain" id = "mountain3" src="images/mountain stages/mountain3.png"></div>
+                <div class="center"><img class = "noSelect mountain" id = "mountain4" src="images/mountain stages/mountain4.png"></div>
+                <div class="center"><img class = "noSelect mountain" id = "mountain5" src="images/mountain stages/mountain5.png"></div>
+                
+
+                <div class="save-container">
+                  <button class="round button" id="save">SAVE</button>
+                  <button class="round button" id="load">LOAD</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+
+              End Play Area Section 
+
+          -->
+        </div>
+      </div>
+
+
+
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+    </html>

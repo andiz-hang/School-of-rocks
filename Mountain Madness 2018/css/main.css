@@ -1,0 +1,343 @@
+/*Prevents highlighting of css elements*/
+.left-box:not(.scrollable) {
+	background-color: rgb(241, 236, 218);
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.no-padding {
+	padding: 0px;
+}
+
+/* 
+	
+	Overlay section 
+
+*/
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: block; /* Shown by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50,75,150,0.5); /* Turqoise background with opacity */
+    z-index: 10000; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#text{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+/*
+
+	End of overlay section
+
+*/
+
+#save {
+	z-index: 10;
+}
+
+#load {
+	z-index: 10;
+}
+
+.top-text {
+	font-weight: bold;
+	font-family: Trebuchet MS;
+}
+.not-allowed {
+    background-color: lightgrey;
+	cursor: not-allowed;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+.full-height {
+	height: 100%;
+}
+.hidden {
+	display: none !important;
+}
+.hover-bold:hover {
+	border: 2px solid black;
+	margin-bottom: 6px;
+	transition: all 0.3s;
+}
+.clicked.hover-bold:hover{
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	transition: all 0.2s;
+}
+.no-bullets {
+	list-style-type: none;
+	font-family: Trebuchet MS;
+}
+
+h1 {
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+p {
+	font-family: Trebuchet MS;
+	margin-bottom: 5px;
+}
+
+li {
+	line-height: 20px;
+}
+.object_pictures {
+	position: absolute;
+	top: 50%;
+    right: 25px;
+    margin-right: 0px;
+    max-height: 100px;
+    width: 65px;
+    transform: translateY(-50%);
+}
+
+.scrollable {
+	position: relative;
+    border: 5px solid black;
+    padding: 5px;
+    background: lightgreen;
+    overflow: auto;
+    height: 400px;
+ 	overflow-y: scroll;
+ 	border-radius: 25px 25px 25px 25px;
+}
+
+.save-container {
+	position: absolute;
+	bottom: 0px;
+	right: 5%;
+}
+
+.overlay-box {
+	max-width: 600px;
+    overflow: auto;
+    height: 600px;
+    overflow-y: scroll;
+    margin: auto;
+    margin-top: 5%;
+    background: white;
+}
+
+.round {
+	border-radius: 25px 25px 25px 25px;
+	padding: 0.3em,0.3em,0.3em.0.3em;
+	margin-bottom: 1em;
+}
+
+.left-box {
+	width: 960px;
+    margin: 0 auto; 
+}
+
+.text-container {
+	border-radius: 25px;
+	padding-left: 1em;
+	margin-bottom: 8px;
+}
+
+.title {
+	font-size: 25px;
+	padding-top: 10px;
+	font-weight: bold;
+	font-family: Trebuchet MS;
+}
+
+.box {
+	position: relative;
+	border: 5px solid black;
+}
+
+.skill-box {
+	position: relative;
+    border: 5px solid black;
+    padding: 5px;
+    background: lightgreen;
+    overflow: auto;
+    height: 200px;
+ 	overflow-y: scroll;
+ 	border-radius: 25px 25px 25px 25px;
+ 	margin-top:1em;
+}
+
+.sticky-bottom {
+	position:relative;
+	bottom:0
+}
+
+/* Putting the mountain stages on the bottom of div container */
+.div-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.div-wrapper img {
+    position: absolute;
+    /*left: 0;
+    bottom: 0;*/
+}
+
+#play-area {
+    background-color: #f1ecda;
+}
+
+/*Adjusting the size of img to fit the screen*/
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.mountain {
+	left: 50%;
+	bottom: 0px;
+	transform: translate(-50%, 0);
+}
+
+/* Displaying mountain stages by id (mountain0 = default)*/
+#mountain0 {
+	display: none;
+}
+#mountain1 {
+	display: none;
+}
+#mountain2 {
+	display: none;
+}
+#mountain3 {
+	display: none;
+}
+#mountain4 {
+	display: none;
+}
+#mountain5 {
+	display: none;
+	height: 100%;
+
+}
+
+/* Positioning of resources */
+#f-metal {
+    bottom: 23%;
+    left: 6%;
+    z-index: 1000;
+}
+#f-metal.clicked {
+	bottom: 24%;
+}
+#f-stone {
+	bottom: 45%;
+    left: 22%;
+    z-index: 1000;
+}
+#f-stone.clicked{
+	bottom: 46%;
+}
+#f-wood {
+    bottom: 32%;
+    left: 75%;
+    z-index: 1000;
+}
+#f-wood.clicked{
+	bottom: 33%;
+}
+
+/* Positioning of buildings */
+.img-building {
+	bottom: 0px;
+	display: none;
+	position: absolute;
+}
+
+#build1 {
+	left: 25%;
+}
+
+#build2 {
+	max-height: 250px;
+	left: 35%;
+}
+
+#build3 {
+	left: 42%;
+}
+
+#build4 {
+	left: 26%;
+}
+
+#build5 {
+	left: 39%;
+}
+
+#build6 {
+	left: 63%;
+}
+
+#build7 {
+	left: 23%;
+}
+
+#build8 {
+	left: 36%;
+}
+
+#build9 {
+	left: 56%;
+}
+
+#build10 {
+	left: 62%;
+}
+
+.text-container {
+	border:1px solid black;
+}
+
+#img-student {
+	height: 55px;
+}
+
+.top-part {
+	width: 100%;
+    height: 60%;
+    position: absolute;
+}
+
+.bottom-part {
+	width: 100%;
+    height: 40%;
+    position: absolute;
+    bottom: 0px;
+}
